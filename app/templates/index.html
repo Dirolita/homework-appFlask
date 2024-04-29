@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title%} Home{% endblock title%}
+{% block content %}
+<section class="login-section">
+    <div class="login-section__img"></div>
+    <div class="login-section__content">
+        <div class="login-section__text">
+            <h2>Hola</h2>
+            
+            <div class="login-section__button">
+                <a href="{{ url_for('auth.login') }}">Inicia SESION</a> 
+            </div>
+    
+        <div class="regiser-section__button">
+            <a href="{{ url_for('auth.register') }}">Crear una cuenta</a> <!-- Aquí deberías añadir el enlace para crear una cuenta -->
+        </div>
+    </div>
+</section>
+</section>
+{% endblock %}

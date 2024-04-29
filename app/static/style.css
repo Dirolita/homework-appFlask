@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.login-section{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../static/imgs/4867159.jpg);
+}
