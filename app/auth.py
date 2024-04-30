@@ -66,7 +66,7 @@ def login():
                     # Usuario autenticado correctamente, redirigir a la página de inicio
                     return redirect(url_for('home.home',username=username))
                 elif user['username'] != username or user['password'] != password:
-                    message = "Verifica los datos"
-                    return render_template('login.html', message=message)
-    
+                    message = "Verifica tus datos"
+                    return render_template('login.html', message = message)
+        
     return render_template('login.html')
