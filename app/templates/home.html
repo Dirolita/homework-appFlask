@@ -1,24 +1,42 @@
 {% extends 'base.html' %}
 
-{% block title%} Home{% endblock title%}
+{% block title %} Home{% endblock title %}
+
 {% block content %}
-    
 <section class="login-section">
     <div>
-    <h1>Bienvenido {{username}}</h1>
-    <form action="{{ url_for('home.home', username=username) }}" method="POST">
-        <input type="text" name="categoria" placeholder="categoria" required>
-        <input type="text" name="task" placeholder="Ingrese una tarea" required>
-        <input type="date" name="date" required>
-        <button type="submit">Agregar tarea</button>
-    </form>
-    <h2>Tareas Pendientes</h2>
+        <h1>Bienvenido {{ username }}</h1>
+        <form action="{{ url_for('home.home', username=username) }}" method="POST">
+            <input type="text" name="categoria" placeholder="Categoria" required>
+            <input type="text" name="task" placeholder="Ingrese una tarea" required>
+            <select name="state">
+                <option value="En proceso">En proceso</option>
+                <option value="Finalizado">Finalizado</option>
+            </select>
+            <input type="date" name="date" required>
+            <button type="submit">Agregar tarea</button>
+        </form>
+        <h2>Tareas Pendientes</h2>
         <ul>
             {% for task in tasks %}
-            <li>{{ task.task }}</li>
-            <li>{{ task.date }}</li>
+                <li><strong>Categoria:</strong> {{ task.category }}</li>
+                <li><strong>Tarea:</strong> {{ task.task }}</li>
+                <li><strong>Fecha:</strong> {{ task.date }}</li>
+                <li><strong>Estado:</strong> {{ task.state }}</li>
+                {% if task.state == 'Finalizado' %}
+                    <li><strong>Fecha de Finalización:</strong> {{ task.fecha_finalizacion }}</li>
+                {% endif %}
+                <li>
+                    <!--Loop.index en este contexto se usa para mostarr el indice del elemento actual-->
+                    <form action="{{ url_for('home.update_task', username=username, task_index=loop.index0) }}" method="POST">
+                        <input type="hidden" name="task_index" value="{{ loop.index0 }}">
+                        <input type="checkbox" name="task_finished" value="true">
+                        <button type="submit">Marcar como finalizado</button>
+                    </form>
+                </li>
+                <br>
             {% endfor %}
         </ul>
-    </section>
-</div>
+    </div>
+</section>
 {% endblock %}
