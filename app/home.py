@@ -59,5 +59,19 @@ def update_task(username, task_index):
 
     return redirect(url_for('home.home', username=username))
 
+@bp.route('/delete_task/<username>/<int:task_index>', methods=['POST'])
+def delete_task(username, task_index):
+    tasks_file_path = f"{username}_tasks.json"
 
+    if os.path.exists(tasks_file_path):
+        with open(tasks_file_path, 'r') as file:
+            tasks_data = json.load(file)
+    else:
+        tasks_data = []
+    
+    tasks_data.pop(task_index)
 
+    with open(tasks_file_path, 'w') as file:
+        json.dump(tasks_data, file)
+
+    return redirect(url_for('home.home', username=username))

@@ -30,8 +30,13 @@
                     <!--Loop.index en este contexto se usa para mostarr el indice del elemento actual-->
                     <form action="{{ url_for('home.update_task', username=username, task_index=loop.index0) }}" method="POST">
                         <input type="hidden" name="task_index" value="{{ loop.index0 }}">
-                        <input type="checkbox" name="task_finished" value="true">
                         <button type="submit">Marcar como finalizado</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="{{ url_for('home.delete_task', username=username, task_index=loop.index0) }}" method="POST">
+                        <input type="hidden" name="task_index" value="{{ loop.index0 }}">
+                        <button type="submit">Eliminar</button>
                     </form>
                 </li>
                 <br>
