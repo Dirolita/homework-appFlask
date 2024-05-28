@@ -3,15 +3,15 @@
 {% block title%} Home{% endblock title%}
 {% block content %}
 <section class="login-section">
-    <div class="login-section__img"></div>
+    <div class="login-section__img">.</div>
     <div class="login-section__content">
         <div class="login-section__text">
-            <h2>Hola</h2>
+            <h2>Bienvenido a <br> Home-work</h2>
             <p>Nos alegra que estés aquí. Esta aplicación está diseñada para simplificar tu vida diaria. Con ella, podrás organizar tus tareas de manera eficiente y mantener el control de tus actividades.</p>
             <div class="login-section__button">
-                <a href="{{ url_for('auth.login') }}">Inicia SESION</a> 
+                <a href="{{ url_for('auth.login') }}">Inicia Sesión</a> 
             </div>
-    
+                <p>o</p>
         <div class="regiser-section__button">
             <a href="{{ url_for('auth.register') }}">Crear una cuenta</a> <!-- Aquí deberías añadir el enlace para crear una cuenta -->
         </div>
