@@ -7,7 +7,7 @@
 :root{
     --orange: rgb(245, 119, 96);
     --white: rgb(247, 239, 237);
-    --gray: rgb(90, 89, 89);
+    --gray: rgb(70, 70, 70);
     --ligth-gray: rgba(236, 236, 236, 0.747);
     --btn-color:#06adb6;
     
@@ -22,12 +22,11 @@ html,body{
 }
 .login-section__img{
     width: 70%;
-    background-image: url(../static/imgs/learning.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
     display: none;
-    
+}
+.login-section__img img{
+    width: 80%;
+    height: 100vh;
 }
 .login-section__content{
     width: 100%;
@@ -43,7 +42,7 @@ html,body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     margin: 16px;
     padding: 30px 12px;
     line-height: 1.1;
@@ -54,7 +53,7 @@ html,body{
   
   }
 .login-section__text h2{
-    margin-bottom: 24px;
+    margin-bottom: 36px;
     color: var(--gray);
     font-size: 32px;
     font-weight: 700;
@@ -62,6 +61,7 @@ html,body{
 }
 .login-section__text p{
     font-size: 18px;
+    line-height: 1.5;
 }
     
 .login-section__text a{
@@ -70,8 +70,8 @@ html,body{
     text-decoration: none;
     font-size: 18px;
     font-family: "Poppins", sans-serif;
-    color: var(--white);
     color: var(--gray);
+
 }
 .login-section__button{
     margin: 40px 0 16px 0 ;
@@ -95,15 +95,47 @@ html,body{
 }
 /*Inico de secion*/
 .login{
-    width: 100%;
-    height: 600px;
-    background-image: url(../static/imgs/login.jpg);
+    width: 380px;
+    height: 380px;
+    margin: 40px auto;
+    background-image: url(../static/imgs/learning.jpg);
     background-size: contain;
     background-repeat: no-repeat;
 }
 .login__container{
+    height: 100%;
+    padding: 14px;
     background-color: var(--ligth-gray);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
+.login__container h1{
+    margin: 32px;
+}
+.login__container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.login__container-form input{
+    width: 70%;
+    height: 30px;
+    font-size: 16px;
+    color: var(--gray);
+}
+.login__container-form button{
+    margin: 40px 0 16px 0 ;
+    padding: 8px;
+    width: 200px;
+    background-color: var(--orange) ;
+    border-radius: 12px;
+    border: none;
+    color: var(--white);
+    font-size: 16;
+}
+
 @media (min-width: 700px) {
     .login-section__img{
         display: block;
@@ -115,4 +147,9 @@ html,body{
     .login-section__content{
         width: 40%;
     }
-}
+    .login{
+        width: 680px;
+        height: 680px;}
+    
+
+    }

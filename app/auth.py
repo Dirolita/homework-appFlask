@@ -38,9 +38,6 @@ def register():
 
         # Guardar la lista actualizada de usuarios en el archivo JSON
         
-        
-    
-    
         return render_template('register.html')
 
    #redirect(url_for('auth.login', message=message))
