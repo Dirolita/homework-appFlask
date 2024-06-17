@@ -4,42 +4,48 @@
 
 {% block content %}
 <section class="login-section">
-    <div>
-        <h1>Bienvenido {{ username }}</h1>
-        <form action="{{ url_for('home.home', username=username) }}" method="POST">
-            <input type="text" name="categoria" placeholder="Categoria" required>
-            <input type="text" name="task" placeholder="Ingrese una tarea" required>
-            <select name="state">
-                <option value="En proceso">En proceso</option>
-                <option value="Finalizado">Finalizado</option>
-            </select>
-            <input type="date" name="date" required>
-            <button type="submit">Agregar tarea</button>
-        </form>
-        <h2>Tareas Pendientes</h2>
-        <ul>
-            {% for task in tasks %}
-                <li><strong>Categoria:</strong> {{ task.category }}</li>
-                <li><strong>Tarea:</strong> {{ task.task }}</li>
-                <li><strong>Fecha:</strong> {{ task.date }}</li>
-                <li><strong>Estado:</strong> {{ task.state }}</li>
-                {% if task.state == 'Finalizado' %}
-                    <li><strong>Fecha de Finalización:</strong> {{ task.fecha_finalizacion }}</li>
-                {% endif %}
-                <li>
-                    <!-- Loop.index en este contexto se usa para mostrar el índice del elemento actual -->
-                    <form action="{{ url_for('home.update_task', username=username, task_index=loop.index0) }}" method="POST">
-                        <input type="hidden" name="task_index" value="{{ loop.index0 }}">
-                        <button type="submit">Marcar como finalizado</button>
-                    </form>
-                </li>
-                <li>
-                    <!-- Agregar un evento onclick para mostrar el popup de confirmación -->
-                    <button type="button" class="delete-btn" data-task-index="{{ loop.index0 }}">Eliminar</button>
-                </li>
-                <br>
-            {% endfor %}
-        </ul>
+    <div class="main-cont">
+        <div class="fr-cont">
+            <h1>Bienvenido {{ username }}</h1>
+            <img src="https://img.freepik.com/vector-gratis/mujer-marcando-concepto-gestion-tiempo-planificador_23-2148823172.jpg?t=st=1718665203~exp=1718668803~hmac=6943ca5414fcb50f42afa921c518a554ee9a469ddf53e1e00c0a86b367b7e470&w=740" alt="Ilustración de gestión de tiempo" style="max-width: 100%; margin-bottom: 20px;">
+            <form action="{{ url_for('home.home', username=username) }}" method="POST">
+                <input type="text" name="categoria" placeholder="Categoria" required>
+                <input type="text" name="task" placeholder="Ingrese una tarea" required>
+                <select name="state">
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
+                <input type="date" name="date" required>
+                <button type="submit">Agregar tarea</button>
+            </form>
+        </div>
+        
+        <div class="tasks">
+            <h2>Tareas Pendientes</h2>
+            <ul>
+                {% for task in tasks %}
+                    <li><strong>Categoria:</strong> {{ task.category }}</li>
+                    <li><strong>Tarea:</strong> {{ task.task }}</li>
+                    <li><strong>Fecha:</strong> {{ task.date }}</li>
+                    <li><strong>Estado:</strong> {{ task.state }}</li>
+                    {% if task.state == 'Finalizado' %}
+                        <li><strong>Fecha de Finalización:</strong> {{ task.fecha_finalizacion }}</li>
+                    {% endif %}
+                    <li>
+                        <!-- Loop.index en este contexto se usa para mostrar el índice del elemento actual -->
+                        <form action="{{ url_for('home.update_task', username=username, task_index=loop.index0) }}" method="POST">
+                            <input type="hidden" name="task_index" value="{{ loop.index0 }}">
+                            <button type="submit">Marcar como finalizado</button>
+                        </form>
+                    </li>
+                    <li>
+                        <!-- Agregar un evento onclick para mostrar el popup de confirmación -->
+                        <button type="button" class="delete-btn" data-task-index="{{ loop.index0 }}">Eliminar</button>
+                    </li>
+                    <br>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </section>
 

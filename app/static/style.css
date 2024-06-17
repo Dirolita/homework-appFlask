@@ -25,8 +25,10 @@ html,body{
     display: none;
 }
 .login-section__img img{
-    width: 80%;
     height: 100vh;
+    position: relative;
+    left: 50px;
+    z-index: -1;
 }
 .login-section__content{
     width: 100%;
@@ -96,19 +98,28 @@ html,body{
 /*Inico de secion*/
 .login{
     width: 380px;
-    height: 380px;
+    height: 500px;
     margin: 40px auto;
     background-image: url(../static/imgs/learning.jpg);
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 12px;
 }
 .login__container{
+    position: relative;
     height: 100%;
     padding: 14px;
     background-color: var(--ligth-gray);
     display: flex;
     flex-direction: column;
     text-align: center;
+    border-radius: 12px;
+}
+login__container-return a{
+    width: 52px;
+    height: auto;
+    position: absolute;
+    left: 38px;
 }
 .login__container h1{
     margin: 32px;
@@ -121,9 +132,19 @@ html,body{
 }
 .login__container-form input{
     width: 70%;
-    height: 30px;
-    font-size: 16px;
+    height: 40px;
+    padding: 4px;
+    font-size: 20px;
     color: var(--gray);
+    outline: none;
+    border-radius: 8px;
+    font-family: Lato, sans-serif;
+    border: 0.5px solid var(--ligth-gray);
+}
+.login__container-form input:focus{
+    border-color: rgb(255, 144, 0);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    outline: 0 none;
 }
 .login__container-form button{
     margin: 40px 0 16px 0 ;
@@ -133,7 +154,181 @@ html,body{
     border-radius: 12px;
     border: none;
     color: var(--white);
-    font-size: 16;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    color: var(--gray);
+}
+/* Seccion de tareas */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+.main-cont{
+    display: flex;
+}
+.login-section div {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+}
+.fr-cont img{
+width: 50%;
+}
+.login-section h1 {
+    text-align: center;
+    color: var(--orange);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.login-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.login-section input[type="text"],
+.login-section input[type="date"],
+.login-section select {
+    padding: 10px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 24px;
+    transition: border-color 0.3s;
+}
+
+.login-section input[type="text"]:focus,
+.login-section input[type="date"]:focus,
+.login-section select:focus {
+    border-color: var(--orange);
+    outline: none;
+}
+
+.login-section button[type="submit"] {
+    padding: 12px;
+    background-color: var(--btn-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-section button[type="submit"]:hover {
+    background-color: darken(var(--btn-color), 10%);
+}
+
+.login-section h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: var(--orange);
+}
+
+.login-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.login-section li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid var(--light-gray);
+}
+
+.login-section .delete-btn {
+    padding: 5px 10px;
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.login-section .delete-btn:hover {
+    background-color: darken(var(--orange), 10%);
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.popup-content .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.popup-content .close:hover {
+    color: var(--orange);
+}
+
+.popup-content p {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup-content button#confirmDeleteBtn {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.popup-content button.cancel {
+    background-color: var(--light-gray);
+    color: var(--gray);
+}
+
+.popup-content button:hover {
+    background-color: darken(var(--orange), 10%);
+}
+
+.popup-content button.cancel:hover {
+    background-color: darken(var(--light-gray), 10%);
 }
 
 @media (min-width: 700px) {
@@ -150,6 +345,11 @@ html,body{
     .login{
         width: 680px;
         height: 680px;}
-    
+    .login__container{
+        justify-content:center;
+    }
+    .login__container h1{
+        margin-bottom:24px;
+    }
 
     }
