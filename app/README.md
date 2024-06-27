@@ -23,8 +23,8 @@ This project is a Task Management Web Application developed using Python Flask f
 1. Install Python and Flask.
 2. Clone this repository.
 3. Navigate to the project directory.
-4. Run `python app.py` to start the Flask server.
-5. Access the application in your browser at `http://localhost:5000`.
+4. Run `python run.py` to start the Flask server.
+5. Access the application in your browser 
 
 
 ## License
