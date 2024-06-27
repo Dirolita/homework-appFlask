@@ -44,12 +44,12 @@ html, body {
 }
 .login-section-Home {
   height: 100%;
-    padding: 20px;
+    padding: 8px;
     width: 100%;
 }
 .main-cont{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
 
 }
 
@@ -176,23 +176,23 @@ html, body {
 /*Boron de cerrar Secion*/
 .home__container-return{
     position: absolute;
-    top: 15;
+    top: 10;
     right: 0;
     padding-right: 20px;
+    z-index: 1;
 }
 .home__container-return img{
-    width: 42px;
+    width: 36px;
 }
 /* Estilo del Formulario */
 .fr-cont {
-    max-width: 400px;
-    width: 100%;
+    max-width: 350px;
 }
 
 .fr-cont h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     color: var(--gray);
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .fr-cont img {
@@ -245,6 +245,8 @@ html, body {
 
 /*Lista de tareas*/
 .tasks {
+    width: 100%;
+    max-width: 900px;
     background: var(--white);
     border-radius: var(--bor-radius);
     padding: 20px;
@@ -252,21 +254,24 @@ html, body {
     margin-bottom: 20px;
     margin: 0px auto;
     position: relative;
-    top: 25px;
+    top: 28px;
 }
 
 .tasks h2 {
     color: var(--gray);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 table {
     width: 100%;
+    max-width: 980px;
     border-collapse: collapse;
     background: var(--white);
     border-radius: var(--bor-radius);
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+
 }
 
 thead {
@@ -275,8 +280,8 @@ thead {
 }
 
 th, td {
-    padding: 12px 15px;
-    text-align: left;
+    padding: 4px;
+    text-align: center;
     border-bottom: 1px solid var(--light-gray);
 }
 
@@ -296,13 +301,13 @@ tbody tr:hover {
 }
 
 .btn-mark-end, .delete-btn {
-    padding: 8px 12px;
-    margin: 5px;
+    padding: 4px;
+    margin: 2px;
     border: none;
     color: var(--hover-text-color);
     cursor: pointer;
     border-radius: var(--bor-radius);
-    font-size: 0.9em;
+    font-size: 12spx;
     transition: background 0.3s, border 0.3s;
 }
 
@@ -534,6 +539,35 @@ tbody tr:hover {
 .login__container-return img:hover {
     transform: rotate(-20deg);
 }
+.Iniciar-secion-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 12px;
+    background: var(--btn-color-alt);
+    color: var(--hover-text-color);
+    border: none;
+    border-radius: var(--bor-radius);
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Iniciar-secion-btn:hover {
+    background: var(--hover-btn-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    color: var(--hover-text-color);
+}
+
+.Iniciar-secion-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {

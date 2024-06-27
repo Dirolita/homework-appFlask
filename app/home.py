@@ -68,8 +68,12 @@ def delete_task(username, task_index):
             tasks_data = json.load(file)
     else:
         tasks_data = []
+    print(f"Antes de eliminar: {tasks_data}")
+    print(f"Intentando eliminar tarea en índice: {task_index}")
     
-    tasks_data.pop(task_index)
+    if 0 <= task_index < len(tasks_data):
+        tasks_data.pop(task_index)
+        print(f"Después de eliminar: {tasks_data}")
 
     with open(tasks_file_path, 'w') as file:
         json.dump(tasks_data, file)

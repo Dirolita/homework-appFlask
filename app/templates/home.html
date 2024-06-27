@@ -9,7 +9,7 @@
     </a>
     <div class="main-cont">
         <div class="fr-cont">
-            <h1>Bienvenido {{ username }}</h1>
+            <h1>Hola {{ username }}</h1>
             <img src="https://img.freepik.com/vector-gratis/mujer-marcando-concepto-gestion-tiempo-planificador_23-2148823172.jpg?t=st=1718665203~exp=1718668803~hmac=6943ca5414fcb50f42afa921c518a554ee9a469ddf53e1e00c0a86b367b7e470&w=740" alt="Ilustración de gestión de tiempo" style="max-width: 100%; margin-bottom: 20px;">
             <form action="{{ url_for('home.home', username=username) }}" method="POST">
                 <input type="text" name="categoria" placeholder="Categoria" required>
@@ -31,7 +31,7 @@
                         <tr>
                             <th>Categoria</th>
                             <th>Tarea</th>
-                            <th>Fecha de entrega</th>
+                            <th>Entrega</th>
                             <th>Estado</th>
                             <th>Fecha de Finalización</th>
                             <th>Acciones</th>
@@ -48,7 +48,7 @@
                             <td>
                                 <form action="{{ url_for('home.update_task', username=username, task_index=loop.index0) }}" method="POST" style="display:inline;">
                                     <input type="hidden" name="task_index" value="{{ loop.index0 }}">
-                                    <button type="submit" class="btn-mark-end">Marcar como finalizado</button>
+                                    <button type="submit" class="btn-mark-end">Finalizado</button>
                                 </form>
                                 <button type="button" class="delete-btn" data-task-index="{{ loop.index0 }}">Eliminar</button>
                             </td>
