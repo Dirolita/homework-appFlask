@@ -1,1 +1,5 @@
-flask
+Install Python and Flask.
+Clone this repository.
+Navigate to the project directory.
+Run python run.py to start the Flask server.
+Access the application in your browser
